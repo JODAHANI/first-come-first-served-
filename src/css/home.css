@@ -3,10 +3,12 @@ main{
     background: url(../img/2_3.jpg);
     background-size: cover;
     background-size: 100%;
-    width: 100%;
+    width: 0;
     height: 650px;
     position: relative;
     background-color: #15400e;
+    animation: main 1.5s;
+    animation-fill-mode: forwards; 
 }
 main::before{
     content: '';
@@ -61,10 +63,12 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 0%;
     height: 150px;
     background-color: #940f0f;
     overflow: hidden;
+    animation: main 1.5s;
+    animation-fill-mode: forwards; 
 }
 section p a{
     color: #fff;
@@ -82,7 +86,7 @@ section p a::after{
     position: absolute;
     width: 0%;
     height: 2px;
-    bottom: -7px;
+    bottom: -1rem;
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -91,9 +95,6 @@ section p a::after{
     animation-fill-mode: forwards; /* 종료 후 위치 */
 
 }
-
-
-
 
 
 @keyframes slide-up{
@@ -111,6 +112,16 @@ section p a::after{
 }
 @keyframes hide{
     0%{width: 0;}
-    100%{width: 30%;}
+    100%{width: 70%;}
+}
+
+@keyframes main {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+    
 }
 

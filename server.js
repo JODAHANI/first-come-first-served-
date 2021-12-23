@@ -15,23 +15,38 @@ app.use('/js', express.static(__dirname + '/src/js'))
 app.get('/', (req, res) => {
   res.render('home')
 })
-app.get('/apply', (req, res) => {
-    res.render('apply',{result : false})
+app.get('/apply', async (req, res) => {
+    let one = await Form.find({})
+    let two = await FormTwo.find({})
+    res.render('apply',{result : false, one: one.length,two : two.length})
 })
 app.post('/apply', async (req, res) => {
   const {name,num,department,time} = req.body;
-  if(time == 'one') {
-    const form = await Form.create({
-      name,num,department,time
-    })
-    console.log(form)
+  let one = await Form.find({})
+  let two = await FormTwo.find({})
+  let find = await Form.find({
+    name,
+    num
+  });
+  let findTwo = await FormTwo.find({
+    name,
+    num
+  });
+  if(find == 0 && findTwo == 0) {
+    if(time == 'one') {
+      const form = await Form.create({
+        name,num,department,time
+      })
+    } else {
+      const form = await FormTwo.create({
+        name,num,department,time
+      })
+    }
+    return res.render('apply',{result : '신청이 완료 되었습니다~! 할렐루야~^^', one: one.length,two : two.length})
   } else {
-    const form = await FormTwo.create({
-      name,num,department,time
-    })
-    console.log(form)
+    return res.render('apply',{result : '이미 신청을 하셨습니다.', one: one.length,two : two.length})
   }
-  res.render('apply',{result : true})
+  
 })
 
 app.listen(port, () => {

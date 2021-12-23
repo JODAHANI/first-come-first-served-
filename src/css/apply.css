@@ -2,7 +2,6 @@ body {
     overflow: hidden;
 }
 main{
-    border: 1px solid #fff;
     background: url(../img/2_3.jpg);
     background-size: cover;
     background-size: 100%;
@@ -10,6 +9,8 @@ main{
     height: 650px;
     position: relative;
     background-color: #15400e;
+    animation: max 1.3s;
+    animation-fill-mode: forwards; /* 종료 후 위치 */
 }
 
 main::before{
@@ -83,6 +84,9 @@ form .type.btn {
     margin-top: 3rem;
     left: 50%;
     transform: translate(-50%);
+    animation: slide-up 1s;
+    animation-fill-mode: forwards; 
+    /* 종료 후 위치 */
 }
 /* .apply.en .box{
     position: absolute;
@@ -99,6 +103,8 @@ form .type.btn {
 .splitting .char {
     animation: slide-up 2s cubic-bezier(.5, 0, .5, 1) both;
     animation-delay: calc(60ms * var(--char-index));
+    animation-fill-mode: forwards; 
+    /* 종료 후 위치 */
 }
 
 .modal{
@@ -112,6 +118,8 @@ form .type.btn {
     z-index: 100;
 }
 .white-bg{
+    background: url(../img/3.jpeg) no-repeat;
+    background-size: cover;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -125,34 +133,37 @@ form .type.btn {
     font-size: 2.5rem;
 }
 .white-bg .box{
-    border: 1px solid lightgray;
+    background-color: #940f0f;
     border-radius: 3rem;
     width: 65%;
-    margin: 40vh auto;
-    padding: 1.5rem 3rem;
+    margin: 10vh auto;
+    padding: 2rem 3rem;
 }
 .white-bg .box p{
+    font-size: 2.5rem;
     line-height: 3rem;
     font-weight: bold;
+    color: #fff;
+    letter-spacing: 5px;
 }
 
 .modal-trigger {
     position: absolute;    
-    top: 5rem;
-    right: 5rem;
+    top: 2rem;
+    right: 1rem;
     transition: all 0.3s;
-    width: 2.5rem;
-    height: 1.2rem;
-    z-index: 11;
+    width: 3rem;
+    height: 1.7rem;
+    z-index: 100;
     cursor: pointer;
 }
 .modal-trigger span{
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: 0;
     width: 100%;
-    height: 2px;
-    background-color: black;
+    height: 3px;
+    background-color: #fff;
 }
 .modal-trigger span:nth-child(1){
     top: 50%;
@@ -163,6 +174,44 @@ form .type.btn {
     top: 50%;
     transform: rotate(-45deg);
 }
+
+section{
+    position: relative;
+    width: 0%;
+    height: 150px;
+    background-color: #940f0f;
+    animation: max 1.3s;
+    animation-fill-mode: forwards; /* 종료 후 위치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+section p {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 1;
+    padding: 0 3rem;
+    position: relative;
+    bottom: -500px;
+    animation: up 1.3s 1s;
+    animation-fill-mode: forwards; /* 종료 후 위치 */
+}
+/* section p:after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -7px;
+    left: 50%;
+    background-color: #fff;
+    animation: hide 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards; /* 종료 후 위치 */
+
+/* }  */
 
 
 @keyframes fade-in {
@@ -177,11 +226,21 @@ form .type.btn {
 }
 
 @keyframes slide-up{
-	0%{transform: translateY(30px); opacity: 0;}
-	80%{transform: translateY(30px); opacity: 0;}
+    0%{top: -5000px;}
+	80%{top: 0px;}
+	/* 0%{transform: translateY(30px); opacity: 0;}
+	80%{transform: translateY(30px);} */
+}
+@keyframes up{
+    0%{bottom: -1500px;}
+	50%{bottom: -500px;}
+    100%{bottom: 0px;}
+	/* 0%{transform: translateY(30px); opacity: 0;}
+	80%{transform: translateY(30px);} */
 }
 
 @keyframes max{
     0%{width: 0%; }
-    100%{width: 60%; opacity: 1;}
+    100%{width: 100%; opacity: 1;}
 }
+

@@ -4,13 +4,12 @@ block css
 block modal 
     if result 
         .modal 
-            .modal-trigger 
-                span
-                span
             .white-bg
+                .modal-trigger 
+                    span
+                    span
                 .box
-                    p 신청이 완료 되었습니다 
-                    p 할렐루야^^
+                    p #{result}
 block content 
     main.inner
         .apply.en(data-splitting) Anointing HwaYang
@@ -23,3 +22,8 @@ block content
                 option(value="one") 1부 9시 30분
                 option(value="two") 2부 11시 30분
             input(type='submit', value="보내기", class="type btn")
+    section.inner
+        p 1부 잔여좌석 : 
+            span #{210-one}석
+        p 2부 잔여좌석 : 
+            span #{210-two}석
