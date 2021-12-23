@@ -2,8 +2,11 @@ extends base.pug
 block css 
     link(rel="stylesheet", href="../css/apply.css")
 block modal 
-    if !result 
+    if result 
         .modal 
+            .modal-trigger 
+                span
+                span
             .white-bg
                 .box
                     p 신청이 완료 되었습니다 

@@ -63,11 +63,11 @@
 }
 
 @media (max-width: 885px) {
-    .apply.en {
+    .apply-kr {
         width: 100%;
         font-size: 3rem;
     }
-    .apply.en .box{
-        display: none;
+    .apply-kr .box{
+        bottom: -1.5rem;
     }
 }
