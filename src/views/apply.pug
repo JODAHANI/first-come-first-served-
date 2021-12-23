@@ -1,0 +1,22 @@
+extends base.pug
+block css 
+    link(rel="stylesheet", href="../css/apply.css")
+block modal 
+    if !result 
+        .modal 
+            .white-bg
+                .box
+                    p 신청이 완료 되었습니다 
+                    p 할렐루야^^
+block content 
+    main.inner
+        .apply.en(data-splitting) Anointing HwaYang
+            .box
+        form(method="POST" action="/apply") 
+            input(class="type", type='text', name="name", placeholder='이름을 적어주세요!', required="true")
+            input(class="type", type='text', name="num", placeholder='연락처를 적어주세요!', required="true" minlength="10")
+            input(class="type", type='text', name="department", placeholder='소속을 적어주세요!', required="true")
+            select(class="type" name="time") 
+                option(value="one") 1부 9시 30분
+                option(value="two") 2부 11시 30분
+            input(type='submit', value="보내기", class="type btn")
