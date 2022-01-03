@@ -1,0 +1,34 @@
+extends base.pug
+block css 
+    link(rel="stylesheet", href="../css/result.css")
+
+block modal 
+    if result
+        if !find
+            .modal 
+                .white-bg
+                    .modal-trigger 
+                        span
+                        span
+                    .box
+                        p #{result}님 죄송합니다. 
+                        p 온라인 예배 부탁드립니다!
+        else 
+            .modal 
+                .white-bg
+                    .modal-trigger 
+                        span
+                        span
+                    .box
+                        p #{find.name}님은 
+                        p #{find.time} 예배에 신청 해주셨습니다. 할렐루야~!
+block content 
+    .full.inner
+        main
+            h2 Anointing HwaYang
+            form.result(action="/result" method="POST")
+                input(class="type", type='text', name="name", placeholder='이름을 적어주세요!', required="true")
+                input(class="type", type='text', name="num", placeholder='연락처를 적어주세요!', required="true" minlength="10")
+                input(type='submit', value="결과확인", class="type btn")
+        section.result.inner
+            p.en(data-splitting) Merry   Christmas

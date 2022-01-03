@@ -1,0 +1,9 @@
+extends base
+block css 
+    link(rel="stylesheet", href="../css/admin.css")
+block content
+    main.inner
+        form(action="/admin", method="POST")
+            input(class="input" type="type" name="id" placeholder="아이디를 입력해주세요.")
+            input(class="input" type="password" name="pw" placeholder="패스워드를 입력해주세요")
+            input(class="input" type="submit" value="전송")

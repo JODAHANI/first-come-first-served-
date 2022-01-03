@@ -59,10 +59,50 @@
         top: 50%;
         transform: rotate(-45deg);
     }
-   
+    .apply{ 
+        width: 100%;
+    }
+    .apply.en {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+    }
+    section.inner p {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    form .type.btn {
+        letter-spacing: 2px;
+    }
+    form.result input:nth-child(1){
+        margin-top: 15rem;
+    }
+    form.result .type.btn{
+        width: 30%;
+        margin-top: 5rem;
+        font-size: 1.3rem;
+        padding: 0.8rem 0.5rem;        
+    }
+    section.result.inner .splitting .char {
+        font-size: 1.8rem;
+        padding: 0;
+        left: 25%;
+    }
+    .white-bg .box p{
+        font-size: 1.5rem;
+    }
 }
-
+@media (max-height: 730px) {
+    .container {
+        height: 100vh;
+    }
+}
 @media (max-width: 885px) {
+    .white-bg{
+        background: url(../img/4.jpeg) no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
     .apply-kr {
         width: 100%;
         font-size: 3rem;

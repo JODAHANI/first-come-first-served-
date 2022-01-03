@@ -2,7 +2,7 @@ extends base.pug
 block css 
     link(rel="stylesheet", href="../css/apply.css")
 block modal 
-    if result 
+    if result
         .modal 
             .white-bg
                 .modal-trigger 
@@ -19,11 +19,25 @@ block content
             input(class="type", type='text', name="num", placeholder='연락처를 적어주세요!', required="true" minlength="10")
             input(class="type", type='text', name="department", placeholder='소속을 적어주세요!', required="true")
             select(class="type" name="time") 
-                option(value="one") 1부 9시 30분
-                option(value="two") 2부 11시 30분
-            input(type='submit', value="보내기", class="type btn")
+                option(value="1부") 1부 9시 30분
+                option(value="2부") 2부 11시 30분
+            input(type='submit', value="신청하기", class="type btn")
     section.inner
-        p 1부 잔여좌석 : 
-            span #{210-one}석
-        p 2부 잔여좌석 : 
-            span #{210-two}석
+        if status
+            p 1부 잔여좌석 : 
+                span.one #{210-one-1}석
+            p 2부 잔여좌석 : 
+                span.two #{210-two}석
+        else if statusTwo
+            p 1부 잔여좌석 : 
+                span.one #{210-one}석
+            p 2부 잔여좌석 : 
+                span.two #{210-two-1}석
+        else
+            p 1부 잔여좌석 : 
+                span.one #{210-one}석
+            p 2부 잔여좌석 : 
+                span.two #{210-two}석
+block js 
+    script(src="../js/num.js") 
+        

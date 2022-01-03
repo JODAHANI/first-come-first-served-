@@ -1,0 +1,13 @@
+main.inner {
+    border: 1px solid burlywood;
+}
+main.inner form{
+    width: 100%;
+    text-align: center;
+}
+main.inner form .input{
+    display: block;
+    padding: 1rem;
+    margin: 0.5rem auto;
+    border: 1px solid blue;
+}
